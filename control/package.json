@@ -1,0 +1,19 @@
+{
+  "name": "control",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "ts-node src/index.ts"
+  },
+  "author": "Paroxyss",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/blessed": "^0.1.19",
+    "@types/node": "^17.0.41",
+    "@types/ws": "^8.5.3",
+    "blessed": "^0.1.81",
+    "colors": "^1.4.0",
+    "ws": "^8.7.0"
+  }
+}

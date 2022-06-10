@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteBlock gen</title>
+    <script type="text/javascript" src="https://unpkg.com/tone@latest/build/Tone.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@tonejs/ui@0.0.8/build/tonejs-ui.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@tonejs/midi"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/emn178/js-md5/build/md5.min.js"></script>
+    <script src="./makeBinary.js"></script>
+    <script src="./upload.js"></script>
+    <script src="./index.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+
+</head>
+
+<body>
+    <!---add file input and text output-->
+    <progress id="progress" value="0" max="100"></progress>
+    <input type="file" id="fileInput" name="fileInput" accept=".mid">
+    <div id="textOutput">
+        <p id="res">
+        </p>
+    </div>
+</body>
+
+</html>

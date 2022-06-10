@@ -1,0 +1,26 @@
+
+
+progress {
+    border-radius: 7px; 
+    width: 90vw;
+    height: 22px;
+    margin-left: 0;
+    box-shadow: 1px 1px 4px rgba( 0, 0, 0, 0.2 );
+  }
+  progress::-webkit-progress-bar {
+    background-color: white;
+    border-radius: 7px;
+  }
+
+  .progress-bar-success::-webkit-progress-value{
+    background-color: greenyellow;
+}
+
+.progress-bar-waiting::-webkit-progress-value{
+  background-color: orange;
+}
+
+  progress::-webkit-progress-value {
+    background-color: blue;
+    border-radius: 7px;
+  }
