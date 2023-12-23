@@ -1,5 +1,6 @@
 import ws from 'ws';
 import colors from "colors/safe"
+import { wifiScan } from './wifiScan';
 
 const colorFuncs = [
     colors.red,
@@ -20,8 +21,18 @@ export class WsClient {
     transpose = 0;
     cbList: { [key: string | number]: { to: NodeJS.Timeout, cb: (data: any) => void } } = {};
     wstag = 0;
-    constructor(public log: (text: string) => void) {
-        this.ws = new ws('ws://192.168.1.99:81');
+    static async toAutoDetectedIp(log : WsClient["log"]) {
+        const ips = await wifiScan();
+        if(ips.length != 1) {
+            console.log("Candidates: ", ips);
+            throw new Error("Bad candidate number");
+        }
+        const ip = ips[0];
+        console.log("Connecting to ", ip);
+        return new WsClient(ip, log);
+    }
+    constructor(ip: string, public log: (text: string) => void) {
+        this.ws = new ws(`ws://${ip}:81`);
         this.ws.on("message", (data) => {
             if (data.toString()[0] != '{' && Buffer.isBuffer(data)) {
                 this.handleMotors(data);
@@ -42,7 +53,7 @@ export class WsClient {
             }
         })
         this.ws.on("open", () => {
-            this.send("motorStream" , true);
+            this.send("motorStream", true);
         })
     }
     handleMotors(data: Buffer) {

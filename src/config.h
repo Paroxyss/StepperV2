@@ -17,14 +17,14 @@
 
 #define NOTE_TIMEOUT 5000000       //(actuellement 10 sec) Timeout d'une note (en µs)
 #define MOTOT_ALIM_TIMEOUT 1000000 // Timeout de l'alimentation des moteurs (en µs)
-#define ENABLE_PIN 25
+#define ENABLE_PIN 21
 
 const int states[8][4] = {{0, 0, 0, 1}, {1, 0, 0, 1}, {1, 0, 0, 0}, {1, 0, 1, 0}, {0, 0, 1, 0}, {0, 1, 1, 0}, {0, 1, 0, 0}, {0, 1, 0, 1}};
 const uint8_t motorsPins[4][4] = {
-	{16, 17, 5, 18},
-	{13, 12, 14, 27},
-	{15, 2, 0, 4},
-	{19, 21, 22, 23},
+	{12, 14, 27, 26},
+	{25, 33, 32, 35},
+	{4, 0, 2, 15},
+	{10, 5, 17, 16},
 };
 
 extern MusicMotor motors[MOTOR_NUMBER];

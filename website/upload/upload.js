@@ -14,6 +14,7 @@ function createChunks(file, cSize = 1024) {
 }
 
 function upload(buffer) {
+    const ip = document.getElementById('ip').value;
     const progressBar = document.getElementById('progress');
     console.log(buffer);
     const chunks = createChunks(buffer);
@@ -21,7 +22,7 @@ function upload(buffer) {
     const hash = md5(buffer);
 
     // open websocket
-    const mainWs = new WebSocket("ws://192.168.1.99:81");
+    const mainWs = new WebSocket(`ws://${ip}:81`);
     mainWs.onopen = () => {
         console.log("websocket opened");
         mainWs.onmessage = (message) => {
@@ -32,7 +33,7 @@ function upload(buffer) {
                     // connect to the upload socket
                     console.log("WS - 2 - opening");
 
-                    const secondWs = new WebSocket("ws://192.168.1.99:82");
+                    const secondWs = new WebSocket(`ws://${ip}:82`);
                     secondWs.onopen = () => {
                         console.log("WS - 2 - opened");
                         secondWs.onmessage = (message) => {

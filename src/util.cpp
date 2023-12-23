@@ -69,7 +69,7 @@ boolean deleteFile(int id)
 
 		String movePath = "/" + toString(maxId);
 
-		Serial.printf("renaming %s to %s after delete\n", movePath, path);
+		Serial.printf("renaming %s to %s after delete\n", movePath, path.c_str());
 
 		SPIFFS.rename(movePath, path);
 

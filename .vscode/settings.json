@@ -43,5 +43,6 @@
         "cinttypes": "cpp",
         "utility": "cpp",
         "typeinfo": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/Users/williamfournier/Documents/PlatformIO/Projects/StepperV2/.pio/libdeps/esp32dev/ArduinoJson"
 }
